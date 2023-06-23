@@ -71,11 +71,11 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 
-#if VIDEOS_ALLOWED
-#if (hxCodec >= "2.6.1") import hxcodec.VideoHandler as MP4Handler;
-#elseif (hxCodec == "2.6.0") import VideoHandler as MP4Handler;
-#else import vlc.MP4Handler; #end
-#end
+//#if VIDEOS_ALLOWED 
+//#if (hxCodec >= "2.6.1") import hxcodec.VideoHandler as MP4Handler;
+//#elseif (hxCodec == "2.6.0") import VideoHandler as MP4Handler;
+//#else import vlc.MP4Handler; #end
+//#end
 
 using StringTools;
 
@@ -1557,33 +1557,34 @@ class PlayState extends MusicBeatState
 
 	public function startVideo(name:String)
 	{
-		#if VIDEOS_ALLOWED
-		inCutscene = true;
+		//#if VIDEOS_ALLOWED
+		//inCutscene = true;
 
-		var filepath:String = Paths.video(name);
-		#if sys
-		if(!FileSystem.exists(filepath))
-		#else
-		if(!OpenFlAssets.exists(filepath))
-		#end
-		{
-			FlxG.log.warn('Couldnt find video file: ' + name);
-			startAndEnd();
-			return;
-		}
+		//var filepath:String = Paths.video(name);
+		//#if sys
+		//if(!FileSystem.exists(filepath))
+		//#else
+		//if(!OpenFlAssets.exists(filepath))
+		//#end
+		//{
+		//	FlxG.log.warn('Couldnt find video file: ' + name);
+		//	startAndEnd();
+		//	return;
+		//}
 
-		var video:MP4Handler = new MP4Handler();
-		video.playVideo(filepath);
-		video.finishCallback = function()
-		{
-			startAndEnd();
-			return;
-		}
-		#else
-		FlxG.log.warn('Platform not supported!');
-		startAndEnd();
-		return;
-		#end
+		//var video:MP4Handler = new MP4Handler();
+		//video.playVideo(filepath);
+		//video.finishCallback = function()
+		//{
+
+		//	startAndEnd();
+		//	return;
+		//}
+		//#else
+		//FlxG.log.warn('Platform not supported!');
+		//startAndEnd();
+		//return;
+		//#end
 	}
 
 	function startAndEnd()
