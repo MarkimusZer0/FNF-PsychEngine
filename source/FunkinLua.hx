@@ -2311,7 +2311,12 @@ class FunkinLua
 			var real = PlayState.instance.getLuaObject(obj);
 			if (real != null)
 			{
-				real.blend = blendModeFromString(blend);
+				switch (blend)
+				{
+					case 'OVERLAY':
+						real.blend = BlendMode.OVERLAY;
+				}
+				//real.blend = blendModeFromString(blend);
 				return true;
 			}
 
@@ -2324,7 +2329,12 @@ class FunkinLua
 
 			if (spr != null)
 			{
-				spr.blend = blendModeFromString(blend);
+				switch (blend)
+				{
+					case 'OVERLAY':
+						real.blend = BlendMode.OVERLAY;
+				}
+				//spr.blend = blendModeFromString(blend);
 				return true;
 			}
 			luaTrace("setBlendMode: Object " + obj + " doesn't exist!", false, false, FlxColor.RED);
