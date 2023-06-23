@@ -2313,6 +2313,8 @@ class FunkinLua
 			{
 				switch (blend)
 				{
+					case 'ADD':
+						real.blend = BlendMode.OVERLAY;
 					case 'OVERLAY':
 						real.blend = BlendMode.OVERLAY;
 				}
@@ -2331,8 +2333,10 @@ class FunkinLua
 			{
 				switch (blend)
 				{
+					case 'ADD':
+						spr.blend = BlendMode.OVERLAY;
 					case 'OVERLAY':
-						real.blend = BlendMode.OVERLAY;
+						spr.blend = BlendMode.OVERLAY;
 				}
 				//spr.blend = blendModeFromString(blend);
 				return true;
